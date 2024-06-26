@@ -1,0 +1,31 @@
+body{
+    background-color: grey;
+}
+#Server{
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: chartreuse;
+}
+#Leader_Board{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+#Leader_Board thead{
+    font-weight: bold;
+}
+
+#Leader_Board tr th{
+    font-weight: normal;
+    text-align: center;
+}
+
+#Leader_Board tr th:nth-child(1){
+    text-align: left;
+    font-weight: bold;
+}
+
