@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () =>
     let Data;
     try
     {
-        let Response = await fetch("https://192.168.1.4:5000/data");
+        let Response = await fetch("https://localhost:5000/data");
         Data = await Response.json();
     }
     catch(error)
