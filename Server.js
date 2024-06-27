@@ -33,7 +33,7 @@ app.get("/data", (request, response) =>
     response.sendFile(path.join(__dirname, "data", "Data.json"));
 })
 
-https.createServer(credentials, app).listen(port, "192.168.1.4", () =>
+https.createServer(credentials, app).listen(port, "0.0.0.0", () =>
 {
     console.log(`Server Running at https://localhost:${port}`);
 })
