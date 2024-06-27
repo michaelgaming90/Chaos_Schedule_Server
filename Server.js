@@ -6,7 +6,7 @@ const cors = require(`cors`);
 const https = require(`https`);
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const privateKey = fs.readFileSync(path.join(__dirname, "public", "ssl", "private.key"));
 const certificate = fs.readFileSync(path.join(__dirname, "public", "ssl", "certificate.crt"), 'utf8');
