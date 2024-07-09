@@ -120,4 +120,4 @@ app.put("/login", (request, response) =>
     })
 })
 
-https.createServer(Options, app).listen(Port);
+app.listen(Port);
