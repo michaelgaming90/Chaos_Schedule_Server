@@ -177,7 +177,6 @@ async function Create_An_Account(Page_Title, [Username_Input, Password_Input], C
         return;
     }
 
-    debugger
     if(Username_Input.value.length === 0 || Password_Input.value.length === 0, Confirm_Password.value.length === 0)
     {
         let p = Factory_Element("p");
