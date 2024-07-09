@@ -1,5 +1,5 @@
 export const Port = 5000;
-export const Hostname = "10.0.0.17";
+export const Hostname = "localhost";
 
 export function Delay(ms)
 {
