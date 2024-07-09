@@ -19,7 +19,6 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const Port = 5000;
-const Hostname = "0.0.0.0";
 const Options = 
 {
     key: fs.readFileSync(path.join(__dirname, "Security", "private.key")),
@@ -121,7 +120,4 @@ app.put("/login", (request, response) =>
     })
 })
 
-https.createServer(Options, app).listen(Port, Hostname, () =>
-{
-    console.log(`Server is listening at http:${Hostname}:${Port}`)
-})
+https.createServer(Options, app).listen(Port);
