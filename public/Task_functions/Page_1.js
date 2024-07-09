@@ -150,7 +150,7 @@ export function Answer(Pick, Picks, Task_Choice, Parent, Timer_Id, Data)
         Label.New_Class("Forms");
         Parent.New_Child(Label);
 
-        Save("Timer", Random_Num*100, Timer_Id, Data);
+        Save("Timer", Random_Num*60*100, Timer_Id, Data);
         Save("Current_Task", Task_Choice.id, Timer_Id, Data);
         Save("Active_Task", true, Timer_Id, Data);
         return;
