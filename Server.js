@@ -32,7 +32,7 @@ app.get("/", (request, response) =>
 
 app.get("/data", (request, response) =>
 {
-    response.sendFile(path.join(__dirname, "data.json"));
+    response.sendFile(path.join(__dirname, "Data.json"));
 })
 
 app.put("/create_an_account", (request, response) =>
