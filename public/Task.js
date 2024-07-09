@@ -75,7 +75,7 @@ function Log_In()
 
         try
         {
-            let request = new Request(`https://${Hostname}:${Port}/login`, 
+            let request = new Request(`chaos-schedule-application.onrender.com/login`, 
             {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
@@ -202,7 +202,7 @@ async function Create_An_Account(Page_Title, [Username_Input, Password_Input], C
         Password: Password_Input.value
     }
 
-    let request = new Request(`https://${Hostname}:${Port}/create_an_account`, 
+    let request = new Request(`chaos-schedule-application.onrender.com/create_an_account`, 
     {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
