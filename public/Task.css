@@ -1,0 +1,37 @@
+/*Body*/
+body{
+    background-color: hsla(0, 0%, 4%, 0.685);
+    color: white;
+    margin: 10px;
+}
+
+hr{
+    margin: 0px;
+}
+
+/*Animation Class*/
+.Animate_Left{
+    animation-name: Slide_Left;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-direction: normal;
+}
+
+.Animate_Right{
+    animation-name: Slide_Right;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+/*Animations*/
+@keyframes Slide_Left{
+    from{transform: translateX(-100%);}
+}
+
+@keyframes Slide_Right{
+    to{transform: translateX(-100%);}
+}
+
+@keyframes Slide_Down{
+    from{transform: translateY(-100px);}
+}

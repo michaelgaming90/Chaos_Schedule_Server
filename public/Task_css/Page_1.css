@@ -1,0 +1,33 @@
+#Tabs{
+    width: fit-content;
+    margin: 0px;
+    height: fit-content;
+}
+
+#My_Div #New_Task{
+    display: block;
+    border: 2px solid;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 3.5em;
+    background-color: hsl(117, 100%, 35%);
+    box-shadow: 1px 1px 5px;
+    animation-name: Slide_Down;
+    animation-play-state: running;
+    animation-duration: 1s;
+}
+
+#My_Div form .Selection{
+    display: block;
+    font-size: 2rem;
+}
+
+#My_Div form label{
+    font-size: 1.25rem;
+}
+
+#My_Div form input{
+    transform: scale(2);
+    margin: 10px 10px;
+    cursor: pointer;
+}
