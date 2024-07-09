@@ -30,6 +30,11 @@ app.get("/", (request, response) =>
     response.sendFile(path.join(__dirname, "public", "Task.html"));
 })
 
+app.get("/data", (request, response) =>
+{
+    response.sendFile(path.join(__dirname, "data.json"));
+})
+
 app.put("/create_an_account", (request, response) =>
 {
     fs.readFile(path.join(__dirname, "Data.json"), "utf-8", (error, data) =>
