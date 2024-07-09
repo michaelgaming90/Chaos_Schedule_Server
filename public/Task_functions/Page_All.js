@@ -43,7 +43,7 @@ export function Server_Save(Data)
         Label.New_Text("Saving...");
         Div.New_Child(Label);
 
-        let request = new Request(`https://chaos-schedule-application.onrender.com/create_an_account/Save`, 
+        let request = new Request(`https://chaos-schedule-application.onrender.com/Save`, 
         {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
