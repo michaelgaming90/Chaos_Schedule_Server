@@ -1,0 +1,78 @@
+#Lock{
+    color: chartreuse;
+    border-radius: 10px;
+    background-color: white;
+    padding: 4px;
+    border: none;
+    margin-bottom: 10px;
+    transition: color 1s linear;
+}
+
+
+#Active_Tasks_Div #Active_Tasks_Selection{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: rgb(255, 149, 0);
+    padding: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px 10px 0 0;
+}
+
+#Active_Tasks_Div #Grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: rgb(255, 255, 255);
+    padding: 5px 10px 10px 10px;
+    border-radius: 0 0 10px 10px;
+    gap: 10px;
+}
+
+#Active_Tasks_Div #Grid .Grid_Items{
+    position: relative;
+    text-align: center;
+    font-size: 1.25rem;
+    background-color: hsla(0, 0%, 7%, 0.685);
+    overflow: hidden;
+    color: white;
+    border-radius: 5px;
+}
+
+#Active_Tasks_Div #Grid .Grid_Items #Timer{
+    --hello: 71px;
+
+    position: absolute;
+    width: var(--hello);
+    left: 50%;
+    top: 43%;
+    transform: translateX(calc(50% - var(--hello)));
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#Active_Tasks_Div #Grid .Grid_Items canvas{
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px 0px;
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+#Active_Tasks_Div #Grid .Grid_Items .Active_Tasks{
+    font-size: 1.5rem;
+    background-color: rgb(0, 255, 0);
+    display: block;
+}
+
+#Active_Tasks_Div #Grid .Grid_Items .Start_Buttons{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 5px;
+    background-color: cyan;
+    cursor: pointer;
+    transition: color .5s linear;
+}

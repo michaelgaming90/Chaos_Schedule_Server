@@ -1,13 +1,56 @@
 [
     {
         "Username": "Michael",
-        "Password": "101010",
+        "Password": "l0lipop",
         "Age": 17,
-        "Score": 710,
+        "Score": 880,
         "Day_Registered": "2024-02-28T00:00:00.000Z",
-        "Tasks": [],
-        "Timers": [],
-        "Active_Task": [],
+        "Tasks": [
+            "cleaning",
+            "Workout",
+            "cleaning"
+        ],
+        "Original_Timers": [
+            4149,
+            48000,
+            7111
+        ],
+        "Timers": [
+            4149,
+            48000,
+            7141
+        ],
+        "Active_Task": [
+            true,
+            true,
+            true
+        ],
+        "Task_Completed": [
+            {
+                "Task": "Bored",
+                "Minutes": 0
+            },
+            {
+                "Task": "School_Work",
+                "Minutes": 0
+            },
+            {
+                "Task": "Coding",
+                "Minutes": 0
+            },
+            {
+                "Task": "Workout",
+                "Minutes": 0
+            },
+            {
+                "Task": "cleaning",
+                "Minutes": 0
+            },
+            {
+                "Task": "business",
+                "Minutes": 0
+            }
+        ],
         "User_Index": 0
     }
 ]

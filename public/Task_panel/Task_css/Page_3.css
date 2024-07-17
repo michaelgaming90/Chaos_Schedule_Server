@@ -1,0 +1,20 @@
+#Statistics{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#Statistics h1,#Statistics h2{
+    margin: 10px 0px;
+}
+
+#Statistics h1{
+    background-color: chartreuse;
+    padding: 10px 0px;
+}
+
+
+#canvas{
+    background-color: rgb(47, 47, 47);
+}
