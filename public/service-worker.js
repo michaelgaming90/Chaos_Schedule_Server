@@ -1,6 +1,18 @@
 const Static_Cache_Name = 'Static-Page-Cache-v1';
 const Dynamic_Cache_Name = "Dynamic-Page-Cache";
-const Server = "https://chaos-schedule-server.onrender.com";
+const Server = "http:localhost:5000"  //https://chaos-schedule-server.onrender.com";
+const Suspended_Server = 
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Service Suspended</title>
+</head>
+<body>
+This service has been suspended by its owner.
+</body>
+</html>`;
 const urlsToCache = [
     `/`,
     '/Task_panel/Task_css/Task.css',
@@ -66,6 +78,10 @@ self.addEventListener("fetch", event =>
                     event.request.clone().url === `${Server}/create_an_account`)
                 {
                     let res = await fetch(event.request.clone());
+                    if(await res.clone().text() === Suspended_Server)
+                    {
+                        throw new Error("Service Suspended");
+                    }
                     let Cache = await caches.open(Dynamic_Cache_Name);  
                     let response = new Response(JSON.stringify(await event.request.clone().json()), {
                         status: 200,

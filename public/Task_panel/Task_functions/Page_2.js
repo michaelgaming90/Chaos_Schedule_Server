@@ -1,10 +1,6 @@
 import {Delay, Check, Save, Factory_Element} from "/Task_panel/Task_functions/Function_Tools.js";
 
-export function Update(   
-    Display, Container, Active_Tasks,
-    milliseconds, Timer_Id, Update_Interval, 
-    Data, Canvas_Context, Timer
-    )
+export function Update(Display, Container, Active_Tasks,milliseconds, Timer_Id, Update_Interval, Data, Canvas_Context, Timer)
 {
     if(milliseconds <= 0)
     {

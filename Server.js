@@ -88,6 +88,7 @@ app.put("/create_an_account", (request, response) =>
             Score: 0,
             Day_Registered: modified_date,
             Tasks: [],
+            Day_Task: 0,
             Timers: [],
             Original_Timers: [],
             Active_Task:[],

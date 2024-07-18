@@ -5,20 +5,24 @@
         "Age": 17,
         "Score": 890,
         "Day_Registered": "2024-02-28T00:00:00.000Z",
+        "Day_Task": 141,
         "Tasks": [
             "cleaning",
             "Workout",
-            "cleaning"
+            "cleaning",
+            "business"
         ],
         "Original_Timers": [
             4149,
             48000,
-            7111
+            150000,
+            114000
         ],
         "Timers": [
             4149,
             48000,
-            7141
+            127270,
+            43438
         ],
         "Active_Task": [
             true,
@@ -44,11 +48,11 @@
             },
             {
                 "Task": "cleaning",
-                "Minutes": 0
+                "Minutes": 1.1851666666666667
             },
             {
                 "Task": "business",
-                "Minutes": 80
+                "Minutes": 181
             }
         ],
         "User_Index": 0

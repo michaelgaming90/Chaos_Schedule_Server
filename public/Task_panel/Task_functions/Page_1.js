@@ -189,18 +189,19 @@ export function Day_Clock(Parent, Data)
         let Hours = Math.floor(milliseconds/(60*60*1000));
         let Days = Math.floor(milliseconds/(24*60*60*1000));
 
+        if(Data.Day_Task < Days)
+        {
+            Data.Day_Task++;
+            Data.Task_Completed.forEach(Task => Task.Minutes = 0)
+            localStorage.setItem("Data", JSON.stringify(Data));
+        }
+
         Seconds = Seconds.toString().padStart(2, "0");
         Minutes = Minutes.toString().padStart(2, "0");
         Hours = Hours.toString().padStart(2, "0");
         Days = Days.toString().padStart(2, "0");
 
         Day_Counter.New_Text(`Day: #${Days}`);
-        Day.New_Text(`${Hours}hours: ${Minutes}mins: ${Seconds}sec`)
-        
-        if(milliseconds % (24*60*60*1000) === 0)
-        {
-            Data.Task_Completed.forEach(Task => Task.Minutes = 0)
-            localStorage.setItem("Data", JSON.stringify(Data));
-        }
+        Day.New_Text(`${Hours}hours: ${Minutes}mins: ${Seconds}sec`) 
     }, 1000);
 }
