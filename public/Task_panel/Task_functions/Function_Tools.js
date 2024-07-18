@@ -1,4 +1,4 @@
-export const Server = "https://chaos-schedule-application.onrender.com";
+export const Server = "https://chaos-schedule-server.onrender.com";
 
 export function Delay(ms)
 {

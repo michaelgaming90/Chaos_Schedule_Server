@@ -1,6 +1,6 @@
 const Static_Cache_Name = 'Static-Page-Cache-v1';
 const Dynamic_Cache_Name = "Dynamic-Page-Cache";
-const Server = "https://chaos-schedule-application.onrender.com";
+const Server = "https://chaos-schedule-server.onrender.com";
 const urlsToCache = [
     `/`,
     '/Task_panel/Task_css/Task.css',
