@@ -98,7 +98,7 @@ self.addEventListener("fetch", event =>
                 if(event.request.clone().url === `${Server}/login`)
                 {
                     let response = await fetch(event.request.clone());
-                    if(await response.clone().text() === Suspended_Server)
+                    if(response.clone().status === 503)
                     {
                         throw new Error("Service Suspended");
                     }
@@ -137,7 +137,7 @@ self.addEventListener("fetch", event =>
         try
         {
             response = await fetch(event.request.clone());
-            if(event.request.clone().url === `${Server}/Task_panel/audios/Alarm.mp3`)
+            if(event.request.url === `${Server}/Task_panel/audios/Alarm.mp3`)
             {
                 let Cache = await caches.open(Dynamic_Cache_Name);
                 let res = new Response(await response.clone().arrayBuffer(),{
