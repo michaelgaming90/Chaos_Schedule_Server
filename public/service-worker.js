@@ -78,7 +78,7 @@ self.addEventListener("fetch", event =>
                     event.request.clone().url === `${Server}/create_an_account`)
                 {
                     let res = await fetch(event.request.clone());
-                    if(response.clone().status === 503)
+                    if(res.clone().status === 503)
                     {
                         throw new Error("Service Suspended");
                     }
