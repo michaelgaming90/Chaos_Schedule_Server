@@ -1,6 +1,6 @@
 const Static_Cache_Name = 'Static-Page-Cache-v1';
 const Dynamic_Cache_Name = "Dynamic-Page-Cache";
-const Server = "http:localhost:5000"  //https://chaos-schedule-server.onrender.com";
+const Server = "https://chaos-schedule-server.onrender.com";
 const Suspended_Server = 
 `<!DOCTYPE html>
 <html lang="en">
@@ -98,6 +98,10 @@ self.addEventListener("fetch", event =>
                 if(event.request.clone().url === `${Server}/login`)
                 {
                     let response = await fetch(event.request.clone());
+                    if(await response.clone().text() === Suspended_Server)
+                    {
+                        throw new Error("Service Suspended");
+                    }
                     let Cache = await caches.open(Dynamic_Cache_Name);   
                     await Cache.put(event.request.clone().url, response.clone());
                     return response;
