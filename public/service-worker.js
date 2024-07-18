@@ -140,7 +140,7 @@ self.addEventListener("fetch", event =>
             if(event.request.clone().url === `${Server}/Task_panel/audios/Alarm.mp3`)
             {
                 let Cache = await caches.open(Dynamic_Cache_Name);
-                let res = new Response(await response.arrayBuffer(),{
+                let res = new Response(await response.arrayBuffer().clone(),{
                     status: 200,
                     statusText: "OK",
                     type: "basic",
