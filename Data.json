@@ -3,7 +3,7 @@
         "Username": "Michael",
         "Password": "l0lipop",
         "Age": 17,
-        "Score": 880,
+        "Score": 890,
         "Day_Registered": "2024-02-28T00:00:00.000Z",
         "Tasks": [
             "cleaning",
@@ -48,7 +48,7 @@
             },
             {
                 "Task": "business",
-                "Minutes": 0
+                "Minutes": 80
             }
         ],
         "User_Index": 0

@@ -15,13 +15,12 @@ export function Update(
         if(audio !== null || !Data.Active_Task[Timer_Id]) return;
             
         Speech_Function(Timer_Id);
-        Save("Score", 2, Timer_Id, Data);
 
         let Audio = Factory_Element("audio");
         Audio.New_Class("Audios");
         Audio.New_Id(`Audio_${Timer_Id}`);
         Audio.New_Loop(true);
-        Audio.New_Source("/Task_panel/audios/civil-defense-siren-128262.mp3");
+        Audio.New_Source("/Task_panel/audios/Alarm.mp3");
         Audio.play();
         Container.New_Child(Audio);
 
@@ -31,11 +30,11 @@ export function Update(
             if(Data.Task_Completed[i].Task === Active_Tasks.textContent) Task_Index = i;
         }
         Data.Task_Completed[Task_Index].Minutes += Data.Original_Timers[Timer_Id]/(60*100);
-        
         Data.Timers[Timer_Id] = milliseconds;
         localStorage.setItem("Data", JSON.stringify(Data));
         
         Active_Tasks.New_Text("Finished");
+        Save("Score", 2, Timer_Id, Data);
         Save("Current_Task_2", "Finished", Timer_Id, Data);
         Save("Active_Task_2", false, Timer_Id, Data);
         return;   

@@ -119,7 +119,6 @@ app.put("/Save", (request, response) =>
         }
 
         data = JSON.parse(data);
-        console.log(data);
         data[request.body.User_Index] = request.body;
 
         fs.writeFile(path.join(__dirname,  "Data.json"), JSON.stringify(data, null, 4), (error) =>

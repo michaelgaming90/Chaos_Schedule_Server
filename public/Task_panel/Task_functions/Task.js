@@ -17,6 +17,8 @@ if ('serviceWorker' in navigator)
         {
             let registration = await navigator.serviceWorker.register("/service-worker.js");
             console.log(`Service Worker registered with scope: ${registration.scope}`);
+            let a = Factory_Element("audio");
+            a.New_Source("/Task_panel/audios/Alarm.mp3");   
         }
         catch(error)
         {
@@ -24,6 +26,8 @@ if ('serviceWorker' in navigator)
         }
     });
 }
+
+
 
 Log_In();
 function Log_In()
@@ -609,7 +613,7 @@ function Statistics()
     Canvas_Context.strokeStyle = "white";
     Canvas_Context.moveTo(50, 50);
     Canvas_Context.lineTo(50, 350);
-    Canvas_Context.lineTo(410, 350);
+    Canvas_Context.lineTo(420, 350);
     Canvas_Context.stroke();
 
     Datas.forEach((Data, Index) =>
@@ -619,7 +623,7 @@ function Statistics()
         const y = Chart_Y + Chart_Height - barHieght;
 
         Canvas_Context.fillStyle = "blue";
-        Canvas_Context.fillRect(x, y, Bar_Width, barHieght);
+        Canvas_Context.fillRect(x, y-1, Bar_Width, barHieght);
 
         Canvas_Context.fillStyle = "white";
         Canvas_Context.textAlign = "center";

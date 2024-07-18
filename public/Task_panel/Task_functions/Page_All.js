@@ -2,6 +2,7 @@ import {Delay,  Save, Factory_Element, Server} from "/Task_panel/Task_functions/
 
 export function Score(Parent, Class, Data)
 {
+    Data = JSON.parse(localStorage.getItem("Data"));
     let Score = Data.Score.toString().padStart(2, "0");
 
     let Score_Div = Factory_Element("div");

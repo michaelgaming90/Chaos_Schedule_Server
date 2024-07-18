@@ -12,7 +12,6 @@ const urlsToCache = [
     "/Task_panel/Task_css/Page_All.css",
 
     "/Task_panel/manifest.json",
-    "/Task_panel/audios/civil-defense-siren-128262.mp3",
     "/Task_panel/icons/icon-192x192.png",
     "/Task_panel/icons/icon-512x512.png",
 
@@ -59,12 +58,14 @@ self.addEventListener("fetch", event =>
 {
     event.respondWith((async () =>
     {
-        if(event.request.method === "PUT")
+        if(event.request.clone().method === "PUT")
         {
             try
             {
-                if(event.request.clone().url === `${Server}/Save`|| event.request.clone().url === `${Server}/create_an_account`)
+                if( event.request.clone().url === `${Server}/Save` || 
+                    event.request.clone().url === `${Server}/create_an_account`)
                 {
+                    let res = await fetch(event.request.clone());
                     let Cache = await caches.open(Dynamic_Cache_Name);  
                     let response = new Response(JSON.stringify(await event.request.clone().json()), {
                         status: 200,
@@ -75,8 +76,7 @@ self.addEventListener("fetch", event =>
                         }
                     })
                     await Cache.put(event.request.clone().url, response.clone());
-                    response = await fetch(event.request.clone());
-                    return response;
+                    return res;
                 }
 
                 if(event.request.clone().url === `${Server}/login`)
@@ -89,7 +89,9 @@ self.addEventListener("fetch", event =>
             }
             catch(error)
             {
-                if(event.request.clone().url === `${Server}/Save` || event.request.clone().url === `${Server}/create_an_account` || event.request.clone().url === `${Server}/login`)
+                if( event.request.clone().url === `${Server}/Save` || 
+                    event.request.clone().url === `${Server}/create_an_account` || 
+                    event.request.clone().url === `${Server}/login`)
                 {
                     let response = new Response("You're offline", {
                         status: 200,
@@ -105,15 +107,39 @@ self.addEventListener("fetch", event =>
         }
 
         let Static_Cache = await caches.open(Static_Cache_Name);
-        let response = await Static_Cache.match(event.request);
+        let response = await Static_Cache.match(event.request.clone());
         if(response) return response;
 
         let Dynamic_Cache = await caches.open(Dynamic_Cache_Name);
-        response = await Dynamic_Cache.match(event.request);
+        response = await Dynamic_Cache.match(event.request.clone());
         if(response) return response;
 
-        response = await fetch(event.request);
-        return response;
+        try
+        {
+            response = await fetch(event.request.clone());
+            if(event.request.clone().url === `${Server}/Task_panel/audios/Alarm.mp3`)
+            {
+                let Cache = await caches.open(Dynamic_Cache_Name);
+                let res = new Response(await response.arrayBuffer(),{
+                    status: 200,
+                    statusText: "OK",
+                    type: "basic",
+                    headers: {"Content-Type": "audio/mpeg"}
+                })
+                await Cache.put(event.request.clone().url, res.clone());
+            }
+            return response;
+        }
+        catch(error)
+        {
+            console.error(error);
+            if(event.request.clone().url === `${Server}/Task_panel/audios/Alarm.mp3`)
+            { 
+                let Cache =  await caches.open(Dynamic_Cache_Name);
+                let response = await Cache.match(event.request.clone());
+                return response;
+            }
+        }
     })()
     );
 })
