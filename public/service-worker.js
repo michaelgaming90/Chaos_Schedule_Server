@@ -1,6 +1,6 @@
 const Static_Cache_Name = 'Static-Page-Cache-v1';
 const Dynamic_Cache_Name = "Dynamic-Page-Cache";
-const Server = "http://localhost:5000"; //"https://chaos-schedule-server.onrender.com";
+const Server = "https://chaos-schedule-server.onrender.com";
 
 const urlsToCache = [
     `/`,
