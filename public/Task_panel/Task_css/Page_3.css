@@ -5,16 +5,36 @@
     text-align: center;
 }
 
-#Statistics h1,#Statistics h2{
-    margin: 10px 0px;
+#Statistics div{
+    background-color: hsla(0, 0%, 100%, 0.10);
+    padding: 0px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+#Statistics div h1, #Statistics div h2{
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+#Statistics div #Goal_Score{
+    margin-bottom: 0px;
+    background-color: hsla(0, 0%, 100%, 0);
+}
+
+#Statistics .Graph_H2{
+    background-color: rgb(0, 157, 255);
+    margin-bottom: 0px;
+    border-radius: 5px 5px 0px 0px;
 }
 
 #Statistics h1{
     background-color: chartreuse;
+    border-radius: 5px 5px 0px 0px;
     padding: 10px 0px;
 }
 
-
-#canvas{
+#Statistics canvas{
     background-color: rgb(47, 47, 47);
+    margin-bottom: 10px;
+    border-radius: 0px 0px 5px 5px;
 }

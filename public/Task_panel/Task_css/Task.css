@@ -1,8 +1,9 @@
 /*Body*/
 body{
-    background-color: hsla(0, 0%, 4%, 0.685);
+    background-color: rgb(59, 59, 59);
     color: white;
-    margin-top: 50px;
+    margin: 15px;
+    margin-bottom: 80px;
 }
 
 hr{

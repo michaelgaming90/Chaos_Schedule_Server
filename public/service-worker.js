@@ -1,37 +1,38 @@
 const Static_Cache_Name = 'Static-Page-Cache-v1';
 const Dynamic_Cache_Name = "Dynamic-Page-Cache";
-const Server = "https://chaos-schedule-server.onrender.com";
-const Suspended_Server = 
-`<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Service Suspended</title>
-</head>
-<body>
-This service has been suspended by its owner.
-</body>
-</html>`;
+const Server = "http://localhost:5000"; //"https://chaos-schedule-server.onrender.com";
+
 const urlsToCache = [
     `/`,
     '/Task_panel/Task_css/Task.css',
-    "/Task_panel/Task_css/Last_Page.css",
     "/Task_panel/Task_css/Log_In_Page.css",
+    "/Task_panel/Task_css/Page_All.css",
     "/Task_panel/Task_css/Page_1.css",
     "/Task_panel/Task_css/Page_2.css",
     "/Task_panel/Task_css/Page_3.css",
-    "/Task_panel/Task_css/Page_All.css",
+    "/Task_panel/Task_css/Page_4.css",
+    "/Task_panel/Task_css/Last_Page.css",
 
     "/Task_panel/manifest.json",
     "/Task_panel/icons/icon-192x192.png",
     "/Task_panel/icons/icon-512x512.png",
+    "/Task_panel/icons/New_Task.png",
+    "/Task_panel/icons/Task.png",
+    "/Task_panel/icons/Statistics.png",
+    "/Task_panel/icons/Meditation.png",
+    "/Task_panel/icons/Qr_Code.png",
+    "/Task_panel/icons/Lock.png",
+    "/Task_panel/icons/Unlock.png",
 
     '/Task_panel/Task_functions/Task.js',
+    "/Task_panel/Task_functions/Account_Manager.js",
     "/Task_panel/Task_functions/Function_Tools.js",
     "/Task_panel/Task_functions/Page_All.js",
     "/Task_panel/Task_functions/Page_1.js",
-    "/Task_panel/Task_functions/Page_2.js"
+    "/Task_panel/Task_functions/Page_2.js",
+    "/Task_panel/Task_functions/Page_3.js",
+    "/Task_panel/Task_functions/Page_4.js",
+    "/Task_panel/Task_functions/Last_Page.js"
 ];
 
 self.addEventListener("install", event =>

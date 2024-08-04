@@ -2,13 +2,17 @@
     display: flex;
     flex-direction: column;
     max-height: 140px;
-    text-align: left;
     align-items: center;
     color: white;
     overflow: hidden;
     background-color: chartreuse;
     border-radius: 15px;
     transition: max-height 0.5s ease-in-out;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #QR_Div input{

@@ -1,0 +1,43 @@
+#Meditation_Div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background-color: hsla(0, 0%, 100%, 0.219);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#Meditation_Div h1{
+    margin: 0px;
+    background-color: rgb(144, 0, 255);
+    padding: 10px 0px;
+}
+
+#Meditation_Div label{
+    position: absolute;
+    font-size: 2rem;
+    font-family: monospace;
+    font-weight: bold;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#Meditation_Div canvas{
+    background-color: rgba(0, 0, 0, 0.66);
+}
+
+#Meditation_Div button{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1%;
+    padding: 5px 10px;
+    background-color: cyan;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.5s ease-in-out;
+}

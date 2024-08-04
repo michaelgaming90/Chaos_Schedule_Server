@@ -1,4 +1,4 @@
-#My_Div #New_Task{
+#New_Task_Div #New_Task{
     display: block;
     border: 2px solid;
     margin-bottom: 10px;
@@ -11,17 +11,32 @@
     animation-duration: 1s;
 }
 
-#My_Div form .Selection{
+#New_Task_Div form{
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+    margin-bottom: 10px;
+    justify-items: left;
+    gap: 10px;
+}
+
+#New_Task_Div form .Selection{
     display: block;
+    grid-column: span 2;
     font-size: 2rem;
 }
 
-#My_Div form label{
+#New_Task_Div form label{
     font-size: 1.25rem;
 }
 
-#My_Div form input{
+#New_Task_Div form #Confirmation{
+    font-size: 1.25rem;
+    grid-column: span 2;
+    margin: 0px;
+}
+
+#New_Task_Div form input{
     transform: scale(2);
-    margin: 10px 10px;
+    z-index: 10;
     cursor: pointer;
 }

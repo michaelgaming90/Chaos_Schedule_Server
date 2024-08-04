@@ -3,59 +3,33 @@
         "Username": "Michael",
         "Password": "l0lipop",
         "Age": 17,
-        "Score": 1072,
+        "Score": 1218,
+        "Goal_Score": 1240,
+        "Week_Score": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "Meditation": {
+            "Original_Timer": 0,
+            "Timer": 0
+        },
         "Day_Registered": "2024-02-28T00:00:00.000Z",
-        "Day_Task": 151,
+        "Day_Task": 158,
         "Tasks": [
-            "cleaning",
-            "Coding",
-            "Coding",
-            "Coding",
-            "Coding",
-            "Coding",
-            "Coding",
-            "Coding",
-            "Coding",
-            "Coding",
-            "Coding"
+            "cleaning"
         ],
         "Original_Timers": [
-            90000,
-            144000,
-            96000,
-            84000,
-            132000,
-            36000,
-            54000,
-            90000,
-            150000,
-            18000,
-            78000
+            120000
         ],
         "Timers": [
-            25914,
-            144000,
-            96000,
-            84000,
-            132000,
-            36000,
-            54000,
-            90000,
-            150000,
-            18000,
-            78000
+            6100
         ],
         "Active_Task": [
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
             true
         ],
         "Task_Completed": [
@@ -69,11 +43,11 @@
             },
             {
                 "Task": "Coding",
-                "Minutes": 133
+                "Minutes": 101
             },
             {
                 "Task": "Workout",
-                "Minutes": 0
+                "Minutes": 16
             },
             {
                 "Task": "cleaning",

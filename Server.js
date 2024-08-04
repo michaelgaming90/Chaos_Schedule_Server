@@ -86,7 +86,13 @@ app.put("/create_an_account", (request, response) =>
             Password: request.body.Password,
             Age:15,
             Score: 0,
+            Goal_Score: 0,
+            Week_Score: [0, 0, 0, 0, 0, 0, 0],
             Day_Registered: modified_date,
+            Meditation: {
+                Timer: 0,
+                Original_Timer: 0
+            },
             Tasks: [],
             Day_Task: 0,
             Timers: [],

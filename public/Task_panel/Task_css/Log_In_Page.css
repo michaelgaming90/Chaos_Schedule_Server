@@ -38,7 +38,7 @@
     transform: translateX(-50%);
 }
 
-#Log_In_Div p{
+#Log_In_Div label{
     color: red;
     margin: 0px;
 }

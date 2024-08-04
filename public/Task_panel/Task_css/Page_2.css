@@ -32,15 +32,16 @@
     position: relative;
     text-align: center;
     font-size: 1.25rem;
-    background-color: hsla(0, 0%, 7%, 0.685);
+    background-color: rgb(59, 59, 59);
     overflow: hidden;
     color: white;
     border-radius: 5px;
+    z-index: 1;
 }
 
 #Active_Tasks_Div #Grid .Grid_Items #Timer{
     --hello: 71px;
-
+    z-index: 1;
     position: absolute;
     width: var(--hello);
     left: 50%;
@@ -54,6 +55,7 @@
 #Active_Tasks_Div #Grid .Grid_Items canvas{
     position:relative;
     left: 50%;
+    z-index: 1;
     transform: translateX(-50%);
     margin: 10px 0px;
     display: block;
@@ -64,11 +66,13 @@
 #Active_Tasks_Div #Grid .Grid_Items .Active_Tasks{
     font-size: 1.5rem;
     background-color: rgb(0, 255, 0);
+    z-index: 1;
     display: block;
 }
 
 #Active_Tasks_Div #Grid .Grid_Items .Start_Buttons{
     padding: 5px 10px;
+    z-index: 1;
     border-radius: 5px;
     border: none;
     margin-bottom: 5px;

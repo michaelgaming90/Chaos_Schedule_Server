@@ -14,52 +14,58 @@
 #Score_Div.Top_Right{
     position: fixed;
     font-size: .85em;
-    padding: 10px;
+    padding: 10px 0px 0px 0px;
     top: 10px;
     right: 2%;
 }
 
 #Score_Div.Bottom{
     display: block;
-    padding: 10px 0px;
+    padding: 10px 0px 0px 0px;
 }
 
 #Score_Div h2{
     margin: 0;
 }
 
-#Tabs{
-    width: fit-content;
-    margin: 0px;
-    height: fit-content;
-    position: absolute;
-    top: 10px;
+#Goal_Score{
+    background-color: rgb(145, 255, 0);
+    border-radius: 0px 0px 5px 5px;
+    padding: 5px;
+}
+
+#Menu_Entry_Button{
+   display: block;
+   position: static;
 }
 
 /*Menu*/
 #Menu_Div{
     display: flex;
-    flex-direction: column;
     position: fixed;
-    height: 90%;
-    width: 70%;
+    flex-direction: row;
     text-align: center;
-    top: 0%;
-    left: 0%;
-    background-color: chartreuse;
+    justify-content: center;
+    gap: 10px;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: rgb(59, 59, 59);
+    padding: 5px 0px;
+    width: 100%;
 }
 
 .Menu_Buttons{
     font-size: 2rem;
-    position: absolute;
-    margin: 0px;
-    margin-left: 5px;
+    background-color: hsla(0, 0%, 0%, 0);
+    border: none;
+    color: white;
     width: fit-content;
     cursor: pointer;
 }
 
 #Menu_Div #Menu_Text{
-    margin-top: 50px;
     background-color: hsl(0, 100%, 99%, 0.90);
     text-align: center;
     font-size: 30px;
@@ -70,10 +76,14 @@
 
 #Menu_Div .Task_Menu{
     background-color: hsla(0, 100%, 99%, 0.75);
-    text-align: left;
-    font-size: 20px;
-    padding: 10px;
-    color: hsl(0, 0%, 0%);
-    display: block;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+#Menu_Div #Lock{
+    height: 30px;
+    width: 30px;
+    margin-top: 1px;
 }

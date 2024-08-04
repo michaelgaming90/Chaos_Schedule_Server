@@ -1,180 +1,153 @@
-import {Check, Save, Factory_Element} from "/Task_panel/Task_functions/Function_Tools.js";
+import {Save,
+    Build_Div, Build_Label, Build_H1, Build_H2, Build_Form, Build_Input
+} from "/Task_panel/Task_functions/Function_Tools.js";
+import {Score} from "/Task_panel/Task_functions/Page_All.js";
 
-export function Challenge(Input, Parent){
-    if(Input.id !== "New_Task_Input")
-    {
-        Check("Something is not Right");
-        return;
-    }
-    
-    if(Input.checked)
-    {
-        let Form = Factory_Element("form");
-        Form.New_Id("Temp_Form");
-        Form.New_Class("Forms");
-        Parent.New_Child(Form);
-    
-        let Label = Factory_Element("label");
-        Label.New_Text("New_Task");
-        Label.New_Class("Selection");
-        Form.New_Child(Label);
+export function New_Task()
+{  
+    let Statistics_Div = Build_Div(document.body, "Statistics_Div");
+    Day_Clock();
+    Score(Statistics_Div, "Top_Right");
 
-        let New_Checkboxs = 
-        [
-            Factory_Element("input"),
-            Factory_Element("input"),
-            Factory_Element("input"),
-            Factory_Element("input"),
-            Factory_Element("input"),
-            Factory_Element("input")
-        ]
+    let New_Task_Div = Build_Div(document.body, "New_Task_Div");
+    Build_H1(New_Task_Div, "New Task", "New_Task");
     
-        New_Checkboxs.forEach((New_Checkbox, Index) => 
+    let Challenge_Form = Build_Form(New_Task_Div, "Challenge");
+    Build_Label(Challenge_Form, "Challenge", "Label", "Selection");
+    let Challenge_Input = Build_Input(Challenge_Form, "New_Task_Input", "checkbox");
+    Build_Label(Challenge_Form, "New_Task", "", "", "New_Task_Input");
+
+    Challenge_Input.addEventListener("click", () =>
+    {
+        Challenge();
+        let Task_Choice_Inputs = document.querySelectorAll("#New_Task_Form input");
+        Task_Choice_Inputs.forEach(Task_Choice_Input =>
         {
-            let Div = Factory_Element("div");
-            Form.New_Child(Div);
-            let Texts = ["Bored", "School_Work", "Coding", "Workout", "cleaning", "business"];
-            
-            New_Checkbox.New_Id(Texts[Index]);
-            New_Checkbox.New_Type("checkbox");
-            New_Checkbox.New_Name("Tasks");
-            Div.New_Child(New_Checkbox);
-
-            let Label = Factory_Element("label");
-            Label.New_Text(Texts[Index]);
-            Label.New_For(Texts[Index]);
-            Div.New_Child(Label);
+            Task_Choice_Input.addEventListener("click", () =>
+            {
+                Choices(Task_Choice_Input);
+                let Confirmations = document.querySelectorAll(`#Choices_Form input`);
+                Confirmations.forEach(Confirmation =>
+                {
+                    Confirmation.addEventListener("click", () =>
+                    {
+                        Answer(Confirmation, Task_Choice_Input);
+                    })
+                })
+            })
         })
-        return;
-    } 
-    try
+    });   
+}
+
+function Challenge(){
+    let Challenge_Input = document.getElementById("New_Task_Input");
+    let New_Task_Div = document.getElementById("New_Task_Div");
+
+    if(Challenge_Input.id !== "New_Task_Input")
+        return console.log("Something is not Right");
+        
+    if(!Challenge_Input.checked)
     {
         let Forms = document.querySelectorAll(".Forms");
-        Forms.forEach(Form => Parent.Remove_Child(Form));
-    }
-    catch(error){}
+        try {Forms.forEach(Form => New_Task_Div.Remove_Child(Form));}
+        catch(error){}
+        return;
+    } 
+
+    let New_Task_Form = Build_Form(New_Task_Div, "New_Task_Form", "Forms");
+    Build_Label(New_Task_Form, "New_Task", "", "Selection");
+
+    let Tasks = ["Bored", "School_Work", "Coding", "Workout", "cleaning", "business"]
+    Tasks.forEach(Task =>
+    {
+        Build_Input(New_Task_Form, Task, "checkbox", "", false, "Tasks");
+        Build_Label(New_Task_Form, Task, "", "", Task);
+    })
 }
 
-export function Choices(Task_Choice, Task_Choices, Parent)
+function Choices(Task_Choice_Input)
 {
-    if(Task_Choice.checked)
+    let Task_Choice_Inputs = document.querySelectorAll("#New_Task_Form input");
+    let New_Task_Div = document.getElementById("New_Task_Div")
+
+    if(!Task_Choice_Input.checked)
     {
-        Task_Choices.forEach(Other =>
-        {
-            if(Task_Choice.id === Other.id) return;
+        let Old_Choices_Form = document.getElementById(`Choices_Form`);
+        New_Task_Div.Remove_Child(Old_Choices_Form);
+        return;
+    }
+
+    Task_Choice_Inputs.forEach(Other_Input =>
+    {
+        if(Task_Choice_Input.id === Other_Input.id) return;
+        if(!Other_Input.checked) return;
             
-            if(Other.checked) 
-            {
-                let Sample_Form = document.getElementById(`Choices_Form`);
-                Parent.Remove_Child(Sample_Form);
-                Other.checked = false;
-            }  
-        })
-
-        let Choices_Form = Factory_Element("form");
-        Choices_Form.New_Id("Choices_Form");
-        Choices_Form.New_Class("Forms");
-        Parent.New_Child(Choices_Form);
-
-        let Label = Factory_Element("label");
-        Label.New_Text("Choices");
-        Label.New_Class("Selection");
-        Choices_Form.New_Child(Label);
-
-        let P = Factory_Element("p");
-        P.New_Text(`Are you Ready for Task: ${Task_Choice.id}`);
-        Choices_Form.New_Child(P);
-        
-        let Inputs =
-        [
-            Factory_Element("input"),
-            Factory_Element("input")
-        ];
-
-        Inputs.forEach((Input, Index) =>
-        {
-            let Div = Factory_Element("div");
-            Choices_Form.New_Child(Div);
-
-            let Texts = ["Yes", "No"];
-
-            Input.New_Id(Texts[Index]);
-            Input.New_Type("checkbox");
-            Input.New_Name("Choices");
-            Div.New_Child(Input);
-        
-            let Label = Factory_Element("label");
-            Label.New_Text(Texts[Index]);
-            Label.New_For(Texts[Index]);
-            Div.New_Child(Label);
-        })
-        return;
-    }
-    let Sample = document.getElementById(`Choices_Form`);
-    Parent.Remove_Child(Sample);
-}
-
-export function Answer(Pick, Picks, Task_Choice, Parent, Timer_Id, Data)
-{
-    if(!Pick.checked)
-    {
-        let p = document.getElementById(`label`);
-        Parent.Remove_Child(p);
-        return;
-    }
-    
-    
-    Picks.forEach(Sample =>
-    {
-        if(Pick.id === Sample.id) return;
-        
-        if(Sample.checked)
-        {
-            let Sample_Form = document.getElementById(`label`);
-            Parent.Remove_Child(Sample_Form);
-            Sample.checked = false;
-        }  
+        let Old_Choices_Form = document.getElementById(`Choices_Form`);
+        New_Task_Div.Remove_Child(Old_Choices_Form);
+        Other_Input.checked = false; 
     })
 
-    if(Pick.id === "Yes")
+    let Choices_Form = Build_Form(New_Task_Div, "Choices_Form", "Forms");
+    Build_Label(Choices_Form, "Choices", "", "Selection");
+    Build_Label(Choices_Form, `Are you Ready for Task: ${Task_Choice_Input.id}`, "Confirmation")
+        
+    let Choices = ["Yes", "No"];
+    Choices.forEach(Choice =>
     {
-        let Random_Num = Math.floor(Math.random() * 30 +1)*60*100;
+        Build_Input(Choices_Form, Choice, "checkbox", "", false, "Choices");
+        Build_Label(Choices_Form, Choice, "", "", Choice);
+    })
+}
 
-        let Label = Factory_Element("label");
-        Label.New_Text(`You have to do ${Task_Choice.id} for ${Random_Num/(60*100)} minutes`);
-        Label.New_Id("label");
-        Label.New_Class("Forms");
-        Parent.New_Child(Label);
-
-        Save("Timer", Random_Num, Timer_Id, Data);
-        Save("Original_Timer", Random_Num, Timer_Id, Data);
-        Save("Current_Task", Task_Choice.id, Timer_Id, Data);
-        Save("Active_Task", true, Timer_Id, Data);
+function Answer(Confirmation_Input, Task_Choice_Input)
+{
+    let Confirmations_Input = document.querySelectorAll(`#Choices_Form input`);
+    let New_Task_Div = document.getElementById("New_Task_Div");
+    
+    if(!Confirmation_Input.checked)
+    {
+        let Message = document.getElementById(`Message`);
+        New_Task_Div.Remove_Child(Message);
         return;
     }
     
-    let Label = Factory_Element("label");
-    Label.New_Text("Come Back When You're Ready");
-    Label.New_Id("label");
-    Label.New_Class("Forms");
-    Parent.New_Child(Label);
+    Confirmations_Input.forEach(Other_Conformation =>
+    {
+        if(Confirmation_Input.id === Other_Conformation.id) return;
+        if(!Other_Conformation.checked) return;
+        
+        let Message = document.getElementById(`Message`);
+        New_Task_Div.Remove_Child(Message);
+        Other_Conformation.checked = false;
+    })
+
+    if(Confirmation_Input.id === "No")
+        return Build_Label(New_Task_Div, "Come Back When You're Ready", "Message", "Forms");
+    
+    let Minute_Formula = 60*100;
+    let Random_Num = Math.floor(Math.random() * 30 +1)*Minute_Formula;
+
+    Build_Label(New_Task_Div, `You have to do ${Task_Choice_Input.id} for ${Random_Num/Minute_Formula} minutes`, "Message", "Forms");
+
+    Save((Data) =>
+    {
+        Data.Timers.push(Random_Num);
+        Data.Original_Timers.push(Random_Num);
+        Data.Tasks.push(Task_Choice_Input.id);
+        Data.Active_Task.push(true);
+        return Data;
+    })
 }
 
-export function Day_Clock(Parent, Data)
+function Day_Clock()
 {
-    let H1 = Factory_Element("h1");
-    H1.New_Text("Time Spent");
-    H1.New_Id("Time Spent");
-    Parent.New_Child(H1);
+    let Statistics_Div = document.getElementById("Statistics_Div");
+    Build_H1(Statistics_Div, "Time Spent", "Time Spent")
     
-    let Day_Counter = Factory_Element("h2");
-    Day_Counter.New_Text("Day: 1");
-    Parent.New_Child(Day_Counter);
+    let Day_Counter_H2 = Build_H2(Statistics_Div, "Day: 1");
+    let Time_Since_H2 = Build_H2(Statistics_Div, "00:00:00");
     
-    let Day = Factory_Element("h2");
-    Day.New_Text("00:00:00");
-    Parent.New_Child(Day);
-    Data = JSON.parse(localStorage.getItem("Data"));
+    let Data = JSON.parse(localStorage.getItem("Data"));
     
     setInterval(() =>
     {
@@ -192,6 +165,12 @@ export function Day_Clock(Parent, Data)
         if(Data.Day_Task < Days)
         {
             Data.Day_Task++;
+            if(Data.Week_Score[Now.getDay()] !== 0) 
+                Data.Week_Score[Now.getDay()] = 0;
+
+            Data.Goal_Score += 20;
+            Data.Meditation.Timer = 0;
+            Data.Meditation.Original_Timer = 0;
             Data.Task_Completed.forEach(Task => Task.Minutes = 0)
             localStorage.setItem("Data", JSON.stringify(Data));
         }
@@ -201,7 +180,7 @@ export function Day_Clock(Parent, Data)
         Hours = Hours.toString().padStart(2, "0");
         Days = Days.toString().padStart(2, "0");
 
-        Day_Counter.New_Text(`Day: #${Days}`);
-        Day.New_Text(`${Hours}hours: ${Minutes}mins: ${Seconds}sec`) 
+        Day_Counter_H2.New_Text(`Day: #${Days}`);
+        Time_Since_H2.New_Text(`${Hours}hours: ${Minutes}mins: ${Seconds}sec`) 
     }, 1000);
 }
